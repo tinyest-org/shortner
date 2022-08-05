@@ -5,7 +5,7 @@ url = "https%3A%2F%2Fdocuments.junior-entreprises.com%2Fkiwi-public%2Fuser%2F451
 base_url = "http://localhost:8080"
 
 def test():
-    r = requests.post(f"{base_url}?url={url}")
+    r = requests.post(f"{base_url}/put?url={url}")
     print(r.text)
 
 
