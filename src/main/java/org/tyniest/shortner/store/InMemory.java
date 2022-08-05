@@ -1,4 +1,4 @@
-package org.tyniest;
+package org.tyniest.shortner.store;
 
 import java.util.HashMap;
 import java.util.Map;

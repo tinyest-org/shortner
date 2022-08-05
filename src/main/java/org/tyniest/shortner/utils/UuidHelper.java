@@ -1,4 +1,4 @@
-package org.tyniest;
+package org.tyniest.shortner.utils;
 
 import java.nio.ByteBuffer;
 import java.util.Base64;
@@ -10,7 +10,7 @@ import java.util.UUID;
  * by encoding it with b64 instead of b16
  */
 public class UuidHelper {
-    private static final Encoder BASE64_URL_ENCODER = Base64.getUrlEncoder().withoutPadding();
+  private static final Encoder BASE64_URL_ENCODER = Base64.getUrlEncoder().withoutPadding();
 
   public static String uuidToB64(UUID uuid) {
     final var bytes = uuidToBytes(uuid);

@@ -1,17 +1,22 @@
-package org.tyniest;
+package org.tyniest.shortner.facade;
 
-import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
+
+import org.tyniest.shortner.store.Store;
+import org.tyniest.shortner.utils.UuidHelper;
 
 import io.smallrye.mutiny.Uni;
 
 @Path("/p")
 public class HttpFacade {
     
-    @Inject
-    Store store;
+    private final Store store;
+
+    public HttpFacade(final Store store) {
+        this.store = store;
+    }
 
     @POST
     public Uni<String> createKey(@QueryParam("url") final String url) {

@@ -1,4 +1,4 @@
-package org.tyniest;
+package org.tyniest.shortner.store;
 
 import javax.enterprise.context.ApplicationScoped;
 

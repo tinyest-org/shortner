@@ -1,22 +1,25 @@
-package org.tyniest;
+package org.tyniest.shortner;
 
 import java.net.URI;
 
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
+import org.tyniest.shortner.store.Store;
 
 import io.smallrye.mutiny.Uni;
 
 @Path("/g")
 public class RedirectorController {
 
-    @Inject
-    Store store;
+    private final Store store;
+
+    public RedirectorController(final Store store) {
+        this.store = store;
+    }
 
     @GET
     @Path("/{key}")
