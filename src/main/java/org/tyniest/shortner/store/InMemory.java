@@ -23,8 +23,17 @@ public class InMemory implements Store {
         return Uni.createFrom().item(data.get(key));
     }
 
+    /**
+     * Does not handle expiration
+     */
     @Override
-    public Uni<Void> set(String key, String value) {
+    public Uni<Void> set(String key, String value, final long expiration) {
+        // 0 -> key never expire
         return Uni.createFrom().item(data.put(key, value)).replaceWithVoid();
+    }
+
+    @Override
+    public Uni<Void> remove(String key) {
+        return Uni.createFrom().item(data.remove(key)).replaceWithVoid();
     }
 }
