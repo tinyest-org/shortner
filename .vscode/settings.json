@@ -1,3 +1,6 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "yaml.schemas": {
+        "microprofile://schema/file:///Users/plawn/Documents/petiteStack/shortner/src/main/resources/application.yaml": "file:///Users/plawn/Documents/petiteStack/shortner/src/main/resources/application.yaml"
+    }
 }

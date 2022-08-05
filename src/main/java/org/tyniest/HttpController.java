@@ -18,7 +18,7 @@ import io.smallrye.mutiny.Uni;
 public class HttpController {
 
     @Inject
-    RedisStore store;
+    Store store;
 
     @GET
     @Path("/{key}")

@@ -1,0 +1,10 @@
+quarkus:
+  redis:
+    hosts: ${REDIS_HOST}
+    devservices:
+      enabled: false
+
+
+shortner:
+  urlPrefix: ""
+  store: redis
