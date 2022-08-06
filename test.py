@@ -6,12 +6,21 @@ url = "https%3A%2F%2Fdocuments.junior-entreprises.com%2Fkiwi-public%2Fuser%2F451
 
 base_url = "http://localhost:8080"
 
-def test():
+
+def test_create_key():
     start = time.time()
     r = requests.post(f"{base_url}/_?url={url}")
     end= time.time()
     print(r.text)
-    print(f'took {(end - start) * 1000} ms')
+    print(f'test_create_key: took {(end - start) * 1000} ms')
 
 
-test()
+def ping():
+    start = time.time()
+    r = requests.post(f"{base_url}/_")
+    end= time.time()
+    print(r.text)
+    print(f'ping: took {(end - start) * 1000} ms')
+
+ping()
+test_create_key()
