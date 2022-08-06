@@ -7,7 +7,7 @@ shortner:
 "%prod%":
   quarkus:
     redis:
-      host: ${REDIS_HOST}
+      hosts: ${REDIS_HOST}
 
 "%dev%":
   quarkus:
