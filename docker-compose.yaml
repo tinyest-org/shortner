@@ -2,12 +2,15 @@ version: "3.7"
 
 
 services:
+  # vBocq-6XQ8qV-JJlU2oNyg
   http-shortner:
     image: plawn/tiny-shortner
     environment:
-      - "REDIS_HOST=redis:6379"
+      - "REDIS_HOST=redis://redis:6379"
     ports:
       - 8080:8080
 
   redis:
     image: redis
+    ports:
+      - 6379:6379

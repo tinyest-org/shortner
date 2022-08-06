@@ -11,9 +11,10 @@
 "%dev":
   quarkus:
     redis:
+      hosts: ${REDIS_HOST}
       devservices:
-        enabled: true
+        enabled: false
 
   shortner:
     urlPrefix: "http://localhost:8080"
-    store: in-memory
+    store: redis

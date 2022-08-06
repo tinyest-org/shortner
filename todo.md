@@ -1,3 +1,0 @@
-- docker-compose
-- docker
-- github action dockerhub
