@@ -15,9 +15,9 @@ import io.smallrye.mutiny.Uni;
 @Path("/g")
 public class RedirectorController {
 
-    private final Store store;
+    private final Store<String> store;
 
-    public RedirectorController(final Store store) {
+    public RedirectorController(final Store<String> store) {
         this.store = store;
     }
 

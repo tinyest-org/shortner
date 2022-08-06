@@ -12,17 +12,18 @@ import io.smallrye.mutiny.Uni;
 
 @Path("/_")
 public class HttpFacade {
-    
-    private final Store store;
 
-    public HttpFacade(final Store store) {
+    private final Store<String> store;
+
+    public HttpFacade(final Store<String> store) {
         this.store = store;
     }
 
     @POST
     public Uni<String> createKey(@QueryParam("url") final String url) {
         final var key = UuidHelper.getCompactUUID4();
-        return store.set(key, url, 0).replaceWith(key);
+        return store.set(key, url, 0, true)
+            .map(oldKey -> oldKey == null ? key : oldKey);
     }
 
     @DELETE

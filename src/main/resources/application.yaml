@@ -1,10 +1,10 @@
 quarkus:
   redis:
-    hosts: "${REDIS_HOST:}"
+    # hosts: "${REDIS_HOST:}"
     devservices:
-      enabled: false
+      enabled: true
 
 
 shortner:
   urlPrefix: ""
-  store: in-memory
+  store: redis

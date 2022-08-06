@@ -10,7 +10,7 @@ import io.smallrye.mutiny.Uni;
 
 @DefaultBean
 @ApplicationScoped
-public class InMemory implements Store {
+public class InMemory implements Store<String> {
 
     private final Map<String, String> data;
 
@@ -27,9 +27,9 @@ public class InMemory implements Store {
      * Does not handle expiration
      */
     @Override
-    public Uni<Void> set(String key, String value, final long expiration) {
+    public Uni<String> set(String key, String value, final long expiration, final boolean reverse) {
         // 0 -> key never expire
-        return Uni.createFrom().item(data.put(key, value)).replaceWithVoid();
+        return Uni.createFrom().item(data.put(key, value));
     }
 
     @Override
