@@ -1,12 +1,13 @@
 
+shortner:
+  urlPrefix: "http://localhost:8080"
+  store: redis
+
+
 "%prod%":
   quarkus:
     redis:
       host: ${REDIS_HOST}
-
-  shortner:
-    urlPrefix: "http://localhost:8080"
-    store: redis
 
 "%dev%":
   quarkus:
