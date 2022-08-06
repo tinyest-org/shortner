@@ -1,0 +1,12 @@
+version: "3.7"
+
+
+services:
+  http-shortner:
+    image: plawn/tiny-shortner
+    environment:
+      REDIS_HOST: 'redis:6379'
+
+
+  redis:
+    image: redis
