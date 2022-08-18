@@ -11,7 +11,13 @@
   http:
     cors:
       ~: true
-      methods: GET,PUT,POST,DELETE,HEAD,PATCH
+      methods: 
+        - GET
+        - PUT
+        - POST
+        - DELETE
+        - HEAD
+        - PATCH
       origins: ${CORS_HOST}
 
 
