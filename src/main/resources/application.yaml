@@ -4,21 +4,22 @@
   quarkus:
     redis:
       hosts: ${REDIS_HOST}
+    http:
+      cors:
+        ~: true
+        methods: 
+          - GET
+          - PUT
+          - POST
+          - DELETE
+          - HEAD
+          - PATCH
+        origins: ${CORS_HOST}
   shortner:
     urlPrefix: "http://localhost:8080"
     store: redis
 
-  http:
-    cors:
-      ~: true
-      methods: 
-        - GET
-        - PUT
-        - POST
-        - DELETE
-        - HEAD
-        - PATCH
-      origins: ${CORS_HOST}
+
 
 
 "%dev":
