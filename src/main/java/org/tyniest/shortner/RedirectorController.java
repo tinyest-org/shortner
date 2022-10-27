@@ -5,9 +5,9 @@ import java.net.URI;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Response;
 
-import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
+import org.jboss.resteasy.reactive.RestResponse;
+import org.jboss.resteasy.reactive.server.jaxrs.RestResponseBuilderImpl;
 import org.tyniest.shortner.store.Store;
 
 import io.smallrye.mutiny.Uni;
@@ -23,18 +23,14 @@ public class RedirectorController {
 
   @GET
   @Path("/{key}")
-  public Uni<Response> getKey(@PathParam("key") final String key) {
+  public Uni<RestResponse<Void>> getKey(@PathParam("key") final String key) {
     return store.get(key)
         .map(k -> {
-          final var res = new ResponseBuilderImpl();
           if (k != null) {
-            res
-                .status(301)
-                .location(URI.create(k));
+            return RestResponseBuilderImpl.<Void>create(301).location(URI.create(k)).build(); // want 301
           } else {
-            res.status(404);
+            return RestResponse.notFound();
           }
-          return res.build();
         });
   }
 }

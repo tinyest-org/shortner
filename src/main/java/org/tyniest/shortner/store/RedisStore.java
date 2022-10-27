@@ -5,7 +5,7 @@ import javax.enterprise.context.ApplicationScoped;
 import io.quarkus.arc.properties.IfBuildProperty;
 import io.quarkus.redis.datasource.ReactiveRedisDataSource;
 import io.quarkus.redis.datasource.keys.ReactiveKeyCommands;
-import io.quarkus.redis.datasource.string.ReactiveStringCommands;
+import io.quarkus.redis.datasource.value.ReactiveValueCommands;
 import io.smallrye.mutiny.Uni;
 
 @IfBuildProperty(name = "shortner.store", stringValue = "redis") // bean will only exist if redis is set
@@ -13,10 +13,10 @@ import io.smallrye.mutiny.Uni;
 public class RedisStore implements Store<String> {
 
     private final ReactiveKeyCommands<String> keyCommands;
-    private final ReactiveStringCommands<String, String> valueCommands;
+    private final ReactiveValueCommands<String, String> valueCommands;
 
     public RedisStore(final ReactiveRedisDataSource reactive) {
-        this.valueCommands = reactive.string(String.class);
+        this.valueCommands = reactive.value(String.class);
         this.keyCommands = reactive.key();
     }
 
