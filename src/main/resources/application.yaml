@@ -6,7 +6,7 @@
       hosts: ${REDIS_HOST}
   shortner:
     urlPrefix: "http://localhost:8080"
-    store: redis
+    store: ${STORE_TYPE}
 
 "%dev":
   quarkus:

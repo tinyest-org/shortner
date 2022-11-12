@@ -6,7 +6,8 @@ services:
   http-shortner:
     image: plawn/tiny-shortner
     environment:
-      - "REDIS_HOST=redis://redis:6379"
+      REDIS_HOST: redis://redis:6379
+      STORE_TYPE: redis
     ports:
       - 8080:8080
 

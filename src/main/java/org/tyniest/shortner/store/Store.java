@@ -2,6 +2,9 @@ package org.tyniest.shortner.store;
 
 import io.smallrye.mutiny.Uni;
 
+/**
+ * Basic store interface, can have local or remote implementations
+ */
 public interface Store<T> {
     Uni<T> get(String key);
     /**

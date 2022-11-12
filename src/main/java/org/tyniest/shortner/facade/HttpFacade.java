@@ -34,7 +34,7 @@ public class HttpFacade {
      */
     @POST
     public Uni<String> createKey(@QueryParam("url") final String url) {
-        return service.createKey(url).onFailure().recoverWithNull();
+        return service.createKey(url);
     }
 
     @DELETE
